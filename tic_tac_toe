@@ -1,0 +1,22 @@
+def checkio(r) :
+    "this is a tic-tac-toe function"
+    l = [[r[0][0], r[1][1], r[2][2]], [r[2][0], r[1][1], r[0][2]]] # diagonals
+    for i in range(3):
+        l.append([x for x in r[i]])        # rows
+        l.append([x[i] for x in r])        # columns
+    if ['X', 'X', 'X'] in l: return 'X'    # three is a unit
+    if ['O', 'O', 'O'] in l: return 'O'    # as well
+    return "D"
+
+print(checkio([
+        "X.O",
+        "XX.",
+        "XOO"]))
+print(checkio([
+        "OO.",
+        "XOX",
+        "XOX"]))
+print(checkio([
+        "XOO",
+        "OOX",
+        "XXO"]))
