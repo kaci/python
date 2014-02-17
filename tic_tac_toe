@@ -1,4 +1,4 @@
-def checkio(r) :
+def checkio_a(r) :
     "this is a tic-tac-toe function"
     l = [[r[0][0], r[1][1], r[2][2]], [r[2][0], r[1][1], r[0][2]]] # diagonals
     for i in range(3):
@@ -8,15 +8,22 @@ def checkio(r) :
     if ['O', 'O', 'O'] in l: return 'O'    # as well
     return "D"
 
-print(checkio([
+def checkio_b(g) :
+    "this is a tic-tac-toe function"
+    grid = g + list(map("".join, zip(*g))) + [g[0][0]+g[1][1]+g[2][2], g[0][2]+g[1][1]+g[2][0]]
+    if "XXX" in grid: return "X"
+    elif "OOO" in grid: return "O"
+    else: return "D"
+
+print(checkio_a([
         "X.O",
         "XX.",
         "XOO"]))
-print(checkio([
+print(checkio_a([
         "OO.",
         "XOX",
         "XOX"]))
-print(checkio([
+print(checkio_a([
         "XOO",
         "OOX",
         "XXO"]))
