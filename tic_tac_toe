@@ -1,5 +1,5 @@
 def checkio_a(r) :
-    "this is a tic-tac-toe function"
+    "this is a tic-tac-toe game function"
     l = [[r[0][0], r[1][1], r[2][2]], [r[2][0], r[1][1], r[0][2]]] # diagonals
     for i in range(3):
         l.append([x for x in r[i]])        # rows
