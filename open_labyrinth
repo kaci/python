@@ -1,0 +1,34 @@
+def checkio(maze_map):
+    res_path = ''
+    posi = [1, 1]
+    for k in range(5) :
+        for i in range(len(maze_map)-2) :
+            row_a = maze_map[i]
+            row_b = maze_map[i+1]
+            row_c = maze_map[i+2]
+            for j in range(1, 11) :
+                if row_a[j] + row_c[j] + row_b[j-1] + row_b[j+1] == 3 :
+                    if ((i != 9) or (j != 10)) and ((i != 0) or (j != 1)):
+                        maze_map[i+1][j] = 1
+
+    while posi != [10, 10] :
+        row_a = maze_map[posi[0]-1]
+        row_b = maze_map[posi[0]]
+        row_c = maze_map[posi[0]+1]
+        if row_c[posi[1]] == 0 :
+            posi[0] += 1
+            maze_map[posi[0]-1][posi[1]] = 1
+            res_path += 'S'
+        elif row_b[posi[1]+1] == 0 :
+            posi[1] += 1
+            maze_map[posi[0]][posi[1]-1] = 1
+            res_path += 'E'
+        elif row_a[posi[1]] == 0 :
+            posi[0] -= 1
+            maze_map[posi[0]+1][posi[1]] = 1
+            res_path += 'N'
+        elif row_b[posi[1]-1] == 0 :
+            posi[1] -= 1
+            maze_map[posi[0]][posi[1]+1] = 1              
+            res_path += 'W'
+    return res_path
